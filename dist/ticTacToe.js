@@ -53,11 +53,22 @@ class TicTacToe {
             }
         };
         const checkBox = () => {
+            for (let row = 0; row < 3; row++) {
+                for (let col = 0; col < 3; col++) {
+                    let compare = this.board[row][col];
+                    if (compare && compare === this.board[row + 1][col] &&
+                        compare === this.board[row][col + 1] &&
+                        compare === this.board[row + 1][col + 1]) {
+                        winners.push(compare);
+                    }
+                }
+            }
         };
         checkVertical();
         checkHorizontal();
         checkDiagonal();
         checkCorners();
+        checkBox();
         return winners;
     }
     //Function to check if there are any moves left on the board
