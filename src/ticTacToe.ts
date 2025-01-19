@@ -53,6 +53,12 @@ export class TicTacToe {
         }
 
         const checkCorners = () => {
+            const compare = this.board[0][0];
+            if (compare && compare === this.board[0][3] &&
+                compare === this.board[3][0] &&
+                compare === this.board[3][3]){
+                    winners.push(compare);
+                }
         }
 
         const checkBox = () => {
@@ -61,6 +67,7 @@ export class TicTacToe {
         checkVertical();
         checkHorizontal();
         checkDiagonal();
+        checkCorners();
 
         return winners
     }

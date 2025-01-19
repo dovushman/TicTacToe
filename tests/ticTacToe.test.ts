@@ -131,3 +131,40 @@ test('Diagonal Multiple Wins - X and O', () => {
     expect(game11.checkWinner()).toEqual(['X', 'O'])
     expect(game11.isGameOver()).toBe(true)
 });
+
+test('4 Corners - X', () => {
+    const board12: Cell[][] = [
+        ['X', null, null, 'X'],
+        [null, null, null, null],
+        [null, null, null, null],
+        ['X', null, null, 'X']
+    ]
+    const game12 = new TicTacToe(board12);
+    expect(game12.checkWinner()).toEqual(['X'])
+    expect(game12.isGameOver()).toBe(true)
+});
+
+test('4 Corners - O', () => {
+    const board13: Cell[][] = [
+        ['O', null, null, 'O'],
+        [null, null, null, null],
+        [null, null, null, null],
+        ['O', null, null, 'O']
+    ]
+    const game13 = new TicTacToe(board13);
+    expect(game13.checkWinner()).toEqual(['O'])
+    expect(game13.isGameOver()).toBe(true)
+});
+
+test('Multiple Winners - X Corners & O Horizontal', () => {
+    const board14: Cell[][] = [
+        ['X', null, null, 'X'],
+        ['O', 'O', 'O', 'O'],
+        [null, null, null, null],
+        ['X', null, null, 'X']
+    ]
+    const game14 = new TicTacToe(board14);
+    expect(game14.checkWinner()).toEqual(['O', 'X'])
+    expect(game14.isGameOver()).toBe(true)
+});
+
