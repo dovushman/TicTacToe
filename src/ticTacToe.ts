@@ -9,10 +9,37 @@ export class TicTacToe {
 
     //Function to go thorugh the different win conditions and check if there is a winner
     public checkWinner(): string[]{
+
+        const winners: string[] = [];
+
+        const checkVertical = () => {
+        }
+
+        const checkHorizontal = () => {
+        }
+
+        const checkDiagonal = () => {
+        }
+
+        const checkCorners = () => {
+        }
+
+        const checkBox = () => {
+        }
+
+        return winners
     }
 
     //Function to check if there are any moves left on the board
     public anyMovesLeft(): boolean{
+        for (let row = 0; row < 4; row++){
+            for (let col = 0; col < 4; col++){
+                if (this.board[row][col] === null){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //Function to check if the game is over
