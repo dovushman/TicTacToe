@@ -29,6 +29,20 @@ class TicTacToe {
             }
         };
         const checkDiagonal = () => {
+            //Checks the top left to bottom right diagnal
+            let compare = this.board[0][0];
+            if (compare && compare === this.board[1][1] &&
+                compare === this.board[2][2] &&
+                compare === this.board[3][3]) {
+                winners.push(compare);
+            }
+            //Checks the top right to bottom left diagnal
+            compare = this.board[0][3];
+            if (compare && compare === this.board[1][2] &&
+                compare === this.board[2][1] &&
+                compare === this.board[3][0]) {
+                winners.push(compare);
+            }
         };
         const checkCorners = () => {
         };
@@ -36,6 +50,7 @@ class TicTacToe {
         };
         checkVertical();
         checkHorizontal();
+        checkDiagonal();
         return winners;
     }
     //Function to check if there are any moves left on the board
