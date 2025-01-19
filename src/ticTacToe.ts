@@ -13,6 +13,14 @@ export class TicTacToe {
         const winners: string[] = [];
 
         const checkVertical = () => {
+            for (let col = 0; col < 4; col++){
+                const compare = this.board[0][col];
+                if (compare && compare === this.board[1][col] && 
+                    compare === this.board[2][col] && 
+                    compare === this.board[3][col]){
+                        winners.push(compare);
+                }
+            }
         }
 
         const checkHorizontal = () => {
@@ -26,6 +34,8 @@ export class TicTacToe {
 
         const checkBox = () => {
         }
+
+        checkVertical();
 
         return winners
     }
@@ -44,6 +54,10 @@ export class TicTacToe {
 
     //Function to check if the game is over
     public isGameOver(): boolean{
+        if (this.checkWinner().length > 0 || !this.anyMovesLeft()){
+            return true;
+        }
+        return false;
     }
 
 }
