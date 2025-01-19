@@ -220,3 +220,32 @@ test('2x2 Box Multiple Wins - X and O', () => {
     expect(game17.isGameOver()).toBe(true);
     expect(game17.anyMovesLeft()).toBe(true);
 });
+
+test('No Winners & No Moves Left', () => {
+    const board18: Cell[][] = [
+        ['X', 'O', 'X', 'X'],
+        ['X', 'X', 'O', 'O'],
+        ['O', 'X', 'X', 'O'],
+        ['X', 'X', 'O', 'O']
+    ]
+    const game18 = new TicTacToe(board18);
+    expect(game18.checkWinner()).toEqual([]);
+    expect(game18.isGameOver()).toBe(true);
+    expect(game18.anyMovesLeft()).toBe(false);
+});
+
+test('Empty', () => {
+    const board19: Cell[][] = [
+        [null, null, null, null],
+        [null, null, null, null],
+        [null, null, null, null],
+        [null, null, null, null]
+    ]
+    const game19 = new TicTacToe(board19);
+    expect(game19.checkWinner()).toEqual([]);
+    expect(game19.isGameOver()).toBe(false);
+    expect(game19.anyMovesLeft()).toBe(true);
+});
+
+
+
